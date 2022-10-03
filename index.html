@@ -4,15 +4,23 @@
 </head>
 <body>
 
-  <a href="https://github.com/login/oauth/authorize?client_id=418d099e11287f40805e">Authorize</a>
+  <a href="https://github.com/login/oauth/authorize?client_id=418d099e11287f40805e">GitHub Authorize</a>
   
-
   <script type="module">
       import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
     
       const params = new URLSearchParams(window.location.search)
       console.log(params)
     
+    
+      if (params.get('code')) {
+          let res = fetch('https://caf-fac.ca/gh.php?code=' + params.get('code'))
+          let data = await res.json()
+          
+          console.log(res)
+          console.log(data)
+          
+      }
 
     </script>
   
