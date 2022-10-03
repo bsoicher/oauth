@@ -20,7 +20,7 @@
           console.log(response)
           console.log(data)
           
-          const octokit = new Octokit({
+          window.octokit = new Octokit({
             auth: data.access_token,
             userAgent: 'BPublish v1.0',
           })
